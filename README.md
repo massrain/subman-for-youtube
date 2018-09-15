@@ -6,8 +6,8 @@ With YTSubsManager, you can manage your Youtube subscriptions in a folderview. I
 
 ## Currently
 
-<img src="http://gss.gs/mVs.jpg" >
+<img src="http://gss.gs/mVs.jpg" height=300 width=410 >
 
 ## Prototype
 
-<img src="http://gss.gs/VJm.jpg">
+<img src="http://gss.gs/VJm.jpg" height=300 width=410 >
