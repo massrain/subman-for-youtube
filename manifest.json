@@ -1,0 +1,29 @@
+{
+    "name": "YTSub Organizer",
+    "description": "Youtube Subscriber List Organizer",
+    "manifest_version": 2,
+    "version": "1.0.0",
+    "icons": {
+        "128": "images/icon128.png"
+    },
+    "browser_action": {
+        "default_popup": "main.html",
+        "default_icon": "images/icon150.png"
+    },
+    "permissions": [
+        "activeTab"
+    ],
+    "web_accessible_resources": [
+        "css/style.css"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "css": [
+                "css/style.css"
+            ]
+        }
+    ]
+}
