@@ -55,7 +55,8 @@
 </template>
 
 <script>
-    import state from "../mixins/state";
+    import state from "../mixins/state"
+    import API_KEY from '../credentials.json'
 
     export default {
         name: "App",
@@ -88,7 +89,7 @@
                     fetch('https://www.googleapis.com/youtube/v3/channels' +
                         '?part=snippet' +
                         '&mine=true' +
-                        '&key=AIzaSyAjpMdoLBb0D8hknwoxOaFyKJFfA6WZ6xQ',
+                        '&key=' + API_KEY,
                         self.getInitialConfig(! interactive))
                         .then((response) => {
                             if (response.status !== 200) {

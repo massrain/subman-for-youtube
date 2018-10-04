@@ -60,7 +60,8 @@
     import Category from './Category'
     import Navbar from './Navbar'
     import Modal from './Modal'
-    import Subscription from "./Subscription";
+    import Subscription from './Subscription'
+    import API_KEY from '../credentials.json'
 
     export default {
         name: "App",
@@ -124,7 +125,7 @@
                         '?part=snippet%2CcontentDetails' +
                         '&mine=true' + '&maxResults=50' +
                         '&pageToken=' + pageToken +
-                        '&key=AIzaSyAjpMdoLBb0D8hknwoxOaFyKJFfA6WZ6xQ',
+                        '&key=' + API_KEY,
                         self.getInitialConfig(true))
                         .then((response) => {
 
