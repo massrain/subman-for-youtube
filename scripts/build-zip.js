@@ -2,10 +2,10 @@
 
 const fs = require('fs');
 const path = require('path');
-const zipFolder = require('zip-folder');
+const zip = require('zip-a-folder');
 
 const DEST_DIR = path.join(__dirname, '../dist');
-const DEST_ZIP_DIR = path.join(__dirname, '../dist-zip'); 
+const DEST_ZIP_DIR = path.join(__dirname, '../dist-zip');
 
 const extractExtensionData = () => {
   const extPackageJson = require('../package.json');
@@ -26,7 +26,7 @@ const buildZip = (src, dist, zipFilename) => {
   console.info(`Building ${zipFilename}...`);
 
   return new Promise((resolve, reject) => {
-    zipFolder(src, path.join(dist, zipFilename), (err) => {
+    zip.zipFolder(src, path.join(dist, zipFilename), (err) => {
       if(err) {
         reject(err);
       } else {
@@ -39,12 +39,12 @@ const buildZip = (src, dist, zipFilename) => {
 const main = () => {
   const {name, version} = extractExtensionData();
   const zipFilename = `${name}-v${version}.zip`;
-  
+
   makeDestZipDirIfNotExists();
 
   buildZip(DEST_DIR, DEST_ZIP_DIR, zipFilename)
     .then(() => console.info('OK'))
-    .catch(console.err); 
+    .catch(console.err);
 };
 
 main();
