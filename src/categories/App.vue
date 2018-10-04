@@ -8,13 +8,19 @@
                 <div class="row justify-content-center">
                     <ul class="nav nav-pills">
                         <li class="nav-item ml-1">
-                            <a class="nav-link active btn-outline-danger" href="#">My Subscriptions</a>
+                            <a class="nav-link btn-outline-danger"
+                               :class="{active: activateTab('my-subscriptions')}"
+                               @click="activeTabId = 'my-subscriptions'"
+                               href="#my-subscriptions">My Subscriptions</a>
                         </li>
                         <li class="nav-item ml-1"
                             v-for="(category, index) in categories"
                             @dblclick="deleteCategory(index)"
-                            :key="category.slug">
-                            <a class="nav-link btn-outline-danger" href="#">{{ category.name }}</a>
+                            :key="category.slug"
+                            :class="{active: activateTab(category.slug)}"
+                            @click="activeTabId = category.slug">
+                            <a class="nav-link btn-outline-danger"
+                               :href="'#' + category.slug">{{ category.name }}</a>
                         </li>
                         <li class="nav-item ml-1">
                             <a class="nav-link btn-dark text-white"
@@ -25,19 +31,26 @@
                 </div>
 
                 <hr noshade class="mt-2">
+
                 <div class="container">
                     <div class="tab-content">
-                        <div class="tab-pane fade show active" role="tabpanel">
+                        <div class="tab-pane fade"
+                             :class="{'show active': activateTab('my-subscriptions')}"
+                             role="tabpanel">
                             <subscription v-for="(subscription, index) in subscriptions"
                                           :data="subscription"
                                           :key="subscription.id"></subscription>
                         </div>
-                        <div class="tab-pane fade" id="Cars" role="tabpanel">
+                        <div class="tab-pane fade"
+                             v-for="(category, index) in categories"
+                             :key="category.slug"
+                             :class="{'show active': activateTab(category.slug)}"
+                             role="tabpanel">
                             <div class="portfolio">
                                 <a>
                                     <img class="card-img" src="http://placehold.it/400x400" alt="">
                                 </a>
-                                <div class="desc">Car 1</div>
+                                <div class="desc">{{category.slug}}</div>
                             </div>
                         </div>
                     </div>
@@ -73,7 +86,9 @@
             Modal
         },
         data: function () {
-            return {}
+            return {
+                activeTabId: 'my-subscriptions'
+            }
         },
         watch: {
             categories(newCategories) {
@@ -146,6 +161,9 @@
                         });
                 });
             },
+            activateTab(reference) {
+                return reference === this.activeTabId;
+            }
         },
         created() {
             let self = this;
