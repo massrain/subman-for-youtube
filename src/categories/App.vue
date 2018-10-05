@@ -17,9 +17,9 @@
                             v-for="(category, index) in categories"
                             @dblclick="deleteCategory(index)"
                             :key="category.slug"
-                            :class="{active: activateTab(category.slug)}"
                             @click="activeTabId = category.slug">
                             <a class="nav-link btn-outline-danger"
+                               :class="{active: activateTab(category.slug)}"
                                :href="'#' + category.slug">{{ category.name }}</a>
                         </li>
                         <li class="nav-item ml-1">

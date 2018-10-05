@@ -22,6 +22,7 @@ export default {
         'toggleModalVisible',
         'setCategories',
         'insertCategory',
+        'isCategoryExists',
         'setSubscriptions',
         'insertSubscriptions'
     ]),

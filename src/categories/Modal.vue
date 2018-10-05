@@ -22,8 +22,11 @@
                                     <input type="text" autofocus
                                            v-model="category"
                                            @keyup.enter="addCategory"
+                                           @keydown="categoryValidationMessage = ''"
                                            placeholder="Name"
-                                           class="form-control">
+                                           class="form-control"
+                                           :class="{'is-invalid': isInvalidCategory}">
+                                    <div class="invalid-feedback">{{ categoryValidationMessage }}</div>
                                 </div>
                             </div>
                             <div class="col-2">
@@ -43,30 +46,55 @@
 </template>
 
 <script>
-    import state from  '../mixins/state'
+    import state from '../mixins/state'
+    import slug from 'slug'
 
     export default {
         name: "Modal",
         mixins: [state],
         data: function () {
             return {
-                category: ''
+                category: '',
+                categoryValidationMessage: ''
             }
         },
-        computed: {},
+        computed: {
+            isInvalidCategory() {
+                return this.categoryValidationMessage.length > 0;
+            },
+        },
         methods: {
+            validateCategory() {
+                let self = this;
+
+                if (this.category.length > 100) {
+                    this.categoryValidationMessage = 'Category name can not be longer than 100 characters.';
+                    return false;
+                }
+                if (this.category === '') {
+                    this.categoryValidationMessage = 'Please provide at least one character.';
+                    return false;
+                }
+                if (this.categories.some(value => value.slug === slug(self.category)) ||
+                    slug(this.category) === 'my-subscriptions') {
+                    this.categoryValidationMessage = 'Sorry, this name already exists!';
+                    return false;
+                }
+
+                return true;
+            },
             addCategory() {
-                this.insertCategory({
-                    name: this.category,
-                    subscriptions: []
-                });
+
+                if (! this.validateCategory()) return;
+
+                this.insertCategory(this.category);
 
                 this.category = '';
-
                 this.toggleModalVisible();
             }
         },
-        mounted() {}
+        mounted() {
+        }
     }
 </script>
 

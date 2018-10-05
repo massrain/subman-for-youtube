@@ -22,9 +22,11 @@ export const setCategories = ({ commit }, payload) => {
     commit('updateCategories', payload);
 };
 export const insertCategory = ({ commit }, payload) => {
-    payload.slug = slug(payload.name);
-
-    commit('appendCategories', payload);
+    commit('appendCategories', {
+        name: payload,
+        slug: slug(payload),
+        subscriptions: []
+    });
 };
 
 export const setSubscriptions = ({ commit }, payload) => {
