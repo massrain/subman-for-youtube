@@ -11,6 +11,7 @@ let state = {
     authToken: null,
     user: null,
     modalVisible: false,
+    activeTabId: 'my-subscriptions',
     categories: [],
     subscriptions: [],
 };

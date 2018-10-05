@@ -89,6 +89,7 @@
 
                 this.insertCategory(this.category);
 
+                this.setActiveTabId(slug(this.category));
                 this.category = '';
                 this.toggleModalVisible();
             }

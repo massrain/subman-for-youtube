@@ -4,6 +4,7 @@ export default {
 
     updateModalVisible: (state, payload) => state.modalVisible = payload,
     flipModalVisible: state => state.modalVisible = ! state.modalVisible,
+    updateActiveTabId: (state, payload) => state.activeTabId = payload,
 
     updateCategories: (state, payload) => state.categories = payload,
     appendCategories: (state, payload) => state.categories.push(payload),

@@ -17,6 +17,9 @@ export const setModalVisible = ({ commit }, payload) => {
 export const toggleModalVisible = ({ commit }) => {
     commit('flipModalVisible');
 };
+export const setActiveTabId = ({ commit }, payload) => {
+    commit('updateActiveTabId', payload);
+};
 
 export const setCategories = ({ commit }, payload) => {
     commit('updateCategories', payload);

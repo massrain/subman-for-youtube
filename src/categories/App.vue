@@ -10,14 +10,14 @@
                         <li class="nav-item ml-1">
                             <a class="nav-link btn-outline-danger"
                                :class="{active: activateTab('my-subscriptions')}"
-                               @click="activeTabId = 'my-subscriptions'"
+                               @click="setActiveTabId('my-subscriptions')"
                                href="#my-subscriptions">My Subscriptions</a>
                         </li>
                         <li class="nav-item ml-1"
                             v-for="(category, index) in categories"
                             @dblclick="deleteCategory(index)"
                             :key="category.slug"
-                            @click="activeTabId = category.slug">
+                            @click="setActiveTabId(category.slug)">
                             <a class="nav-link btn-outline-danger"
                                :class="{active: activateTab(category.slug)}"
                                :href="'#' + category.slug">{{ category.name }}</a>
@@ -86,9 +86,7 @@
             Modal
         },
         data: function () {
-            return {
-                activeTabId: 'my-subscriptions'
-            }
+            return {}
         },
         watch: {
             categories(newCategories) {

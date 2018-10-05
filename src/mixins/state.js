@@ -11,6 +11,7 @@ export default {
             authorized: 'isAuthTokenExists',
             authToken: 'getAuthToken',
             user: 'getUser',
+            activeTabId: 'getActiveTabId',
             categories: 'getCategories',
             subscriptions: 'getSubscriptions',
         })
@@ -19,6 +20,7 @@ export default {
         'setUser',
         'setAuthToken',
         'setModalVisible',
+        'setActiveTabId',
         'toggleModalVisible',
         'setCategories',
         'insertCategory',
