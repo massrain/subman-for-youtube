@@ -1,5 +1,5 @@
 <template>
-    <div :class="{'modal-open': modalVisible}">
+    <div :class="{'modal-open': modalVisible}" v-if="authorized">
         <navbar></navbar>
 
         <section style="padding-bottom:100px">
@@ -24,8 +24,7 @@
                         </li>
                         <li class="nav-item ml-1">
                             <a class="nav-link btn-dark text-white"
-                               href="#"
-                               @click.prevent="toggleModalVisible">+ Category</a>
+                               @click.prevent="toggleModalVisible({formType: 'category', relatedId: 0})">+ Category</a>
                         </li>
                     </ul>
                 </div>
@@ -37,27 +36,23 @@
                         <div class="tab-pane fade"
                              :class="{'show active': activateTab('my-subscriptions')}"
                              role="tabpanel">
-                            <subscription v-for="(subscription, index) in subscriptions"
-                                          :data="subscription"
-                                          :key="subscription.id"></subscription>
+                            <channel v-for="(subscription, index) in subscriptions"
+                                     :data="subscription"
+                                     form-type="subscription"
+                                     :key="subscription.id"></channel>
                         </div>
-                        <div class="tab-pane fade"
-                             v-for="(category, index) in categories"
-                             :key="category.slug"
-                             :class="{'show active': activateTab(category.slug)}"
-                             role="tabpanel">
-                            <div class="portfolio">
-                                <a>
-                                    <img class="card-img" src="http://placehold.it/400x400" alt="">
-                                </a>
-                                <div class="desc">{{category.slug}}</div>
-                            </div>
-                        </div>
+
+                        <tab v-for="(category, index) in categories"
+                             :index="index"
+                             @category-updated="syncStorage"
+                             :active="activateTab(category.slug)"
+                             :key="category.id"></tab>
                     </div>
                 </div>
             </div>
-            <modal></modal>
         </section>
+
+        <modal type="category"></modal>
 
         <section>
             <div class="footer sticky-bottom text-danger">
@@ -69,40 +64,39 @@
 
 <script>
     import state from '../mixins/state'
+    import API_KEY from '../credentials.json'
 
-    import Category from './Category'
     import Navbar from './Navbar'
     import Modal from './Modal'
-    import Subscription from './Subscription'
-    import API_KEY from '../credentials.json'
+    import Channel from './Channel'
+    import Tab from './Tab'
 
     export default {
         name: "App",
         mixins: [state],
         components: {
-            Subscription,
-            Category,
+            Channel,
             Navbar,
-            Modal
+            Modal,
+            Tab
         },
         data: function () {
             return {}
         },
         watch: {
             categories(newCategories) {
-                chrome.storage.sync.set({categories: newCategories});
+                this.syncStorage(newCategories);
             },
             subscriptions(newSubscriptions) {
                 chrome.storage.local.set({subscriptions: newSubscriptions});
             }
         },
         methods: {
+            syncStorage(newCategories = this.categories) {
+                chrome.storage.sync.set({categories: newCategories});
+            },
             deleteCategory(id) {
                 this.categories.splice(id, 1);
-            },
-            syncCategories() {
-                chrome.storage.sync.set({categories: this.categories}, function () {
-                });
             },
             getInitialConfig(isAsync) {
                 return {
@@ -160,7 +154,7 @@
                 });
             },
             activateTab(reference) {
-                return reference === this.activeTabId;
+                return reference === this.activeTabId
             }
         },
         created() {
@@ -193,14 +187,6 @@
         background-color: white;
         color: white;
         text-align: center;
-    }
-
-    .desc {
-        padding: 5px;
-        text-align: center;
-        font-size: 90%;
-        background: #cc181e;
-        color: #fff;
     }
 
     .animate-spin {

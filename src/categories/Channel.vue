@@ -1,22 +1,29 @@
 <template>
     <div class="portfolio">
-        <a>
-            <img class="card-img" src="http://placehold.it/400x400" alt="">
+        <a :href="url" target="_blank">
+            <img class="card-img" :src="thumbnail" alt="">
         </a>
-        <div class="desc">Car 1</div>
+        <div class="desc">{{ title }}</div>
     </div>
 </template>
 
 <script>
+    import state from '../mixins/state'
+
     export default {
         name: "Channel",
-        props: ['data'],
+        mixins: [state],
+        props: ['data', 'form-type'],
         data: function () {
-            return {}
+            return {
+                id: this.data.id,
+                title: this.data.snippet.title,
+                thumbnail: this.data.snippet.thumbnails.medium.url,
+                url: 'https://youtube.com/channel/' + this.data.snippet.resourceId.channelId,
+            }
         },
         methods: {
             remove() {
-                this.$emit('subscription-removed');
             }
         },
         mounted() {}
@@ -24,13 +31,13 @@
 </script>
 
 <style>
-
     .portfolio {
         position: relative;
         margin: 5px;
         border: 2px solid black;
         float: left;
         width: 140px;
+        height: 200px;
         transition-duration: 0.4s;
         border-radius: 5px;
         animation: winanim 0.5s;
@@ -45,14 +52,19 @@
 
     .portfolio img {
         width: 100%;
-        height: auto;
-        border-radius: 5px
+        height: 136px;
     }
 
     .desc {
         padding: 5px;
-        text-align: center;
-        font-size: 90%;
+        display: flex;
+        align-items: center;
+        font-weight: 700;
+        width: 100%;
+        height: 64px;
+        position: absolute;
+        border-top: 1px solid black;
+        bottom: 0;
         background: #cc181e;
         color: #fff;
     }

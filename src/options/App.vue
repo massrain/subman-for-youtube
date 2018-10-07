@@ -40,7 +40,6 @@
         watch: {
             categories(newCategories) {
                 chrome.storage.sync.set({categories: newCategories});
-                // console.log(newCategories);
             }
         },
         computed: {

@@ -1,30 +1,38 @@
-import store from '../store'
 import {mapState, mapGetters, mapActions} from 'vuex'
 
 export default {
-    store,
     computed: {
-        ...mapState([
-            'modalVisible'
-        ]),
+        ...mapState([]),
         ...mapGetters({
             authorized: 'isAuthTokenExists',
             authToken: 'getAuthToken',
             user: 'getUser',
+
+            modalVisible: 'getModalVisible',
+            modalType: 'getModalType',
+            modalRelatedId: 'getModalRelation',
+
             activeTabId: 'getActiveTabId',
+
             categories: 'getCategories',
+
+            subscriptionOptions: 'getSubscriptionOptions',
             subscriptions: 'getSubscriptions',
         })
     },
     methods: mapActions([
         'setUser',
         'setAuthToken',
-        'setModalVisible',
+
         'setActiveTabId',
+
         'toggleModalVisible',
+
+        'setChannels',
+
         'setCategories',
         'insertCategory',
-        'isCategoryExists',
+
         'setSubscriptions',
         'insertSubscriptions'
     ]),

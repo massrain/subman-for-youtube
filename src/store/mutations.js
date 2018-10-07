@@ -2,10 +2,19 @@ export default {
     updateUser: (state, payload) => state.user = payload,
     updateAuthToken: (state, payload) => state.authToken = payload,
 
-    updateModalVisible: (state, payload) => state.modalVisible = payload,
-    flipModalVisible: state => state.modalVisible = ! state.modalVisible,
+    flipModalVisible: (state, payload) => {
+        if (payload){
+            state.modal.relatedId = payload.relatedId;
+            state.modal.formType = payload.formType;
+        }
+        state.modal.visible = ! state.modal.visible;
+    },
+
     updateActiveTabId: (state, payload) => state.activeTabId = payload,
 
+    updateChannels: (state, payload) => {
+        state.categories[state.modal.relatedId].channels = payload.channels;
+    },
     updateCategories: (state, payload) => state.categories = payload,
     appendCategories: (state, payload) => state.categories.push(payload),
 

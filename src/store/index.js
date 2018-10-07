@@ -10,7 +10,11 @@ Vue.use(Vuex);
 let state = {
     authToken: null,
     user: null,
-    modalVisible: false,
+    modal: {
+        visible: false,
+        relatedId: null,
+        formType: ''
+    },
     activeTabId: 'my-subscriptions',
     categories: [],
     subscriptions: [],
