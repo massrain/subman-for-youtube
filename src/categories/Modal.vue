@@ -5,7 +5,9 @@
              @keydown.esc="toggleModalVisible"
              tabindex="-1" role="dialog"
              aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-dialog modal-dialog-centered"
+                 :class="{'modal-lg': modalType === 'channel'}"
+                 role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">{{ title }}</h5>
@@ -39,18 +41,30 @@
                         <div class="row" v-show="modalType === 'channel'">
                             <div class="col-12">
                                 <div class="form-group">
-                                    <v-select multiple
-                                              v-model="models.channels"
-                                              label="title"
-                                              :close-on-select="false"
-                                              :options="subscriptionOptions">
-                                        <template slot="option" slot-scope="option">
-                                            <img class="rounded float-left mr-1"
-                                                 width="20"
-                                                 :src="option.url">
-                                            {{ option.title }}
+                                    <multiselect
+                                            v-model="models.channels"
+                                            :options="subscriptionOptions"
+                                            :option-height="50"
+                                            :multiple="true"
+                                            open-direction="below"
+                                            :close-on-select="false"
+                                            :preserve-search="true"
+                                            placeholder="Pick some"
+                                            label="title"
+                                            track-by="id"
+                                            :preselect-first="true">
+                                        <template slot="option" slot-scope="props">
+                                            <img class="rounded float-left mr-1 option__image"
+                                                 height="30"
+                                                 width="30"
+                                                 :src="props.option.url">
+                                            <div class="option__desc align-content-center ml-1">
+                                                <h5 class="option__title">
+                                                    {{ props.option.title }}
+                                                </h5>
+                                            </div>
                                         </template>
-                                    </v-select>
+                                    </multiselect>
                                 </div>
                             </div>
                         </div>
@@ -64,7 +78,7 @@
 </template>
 
 <script>
-    import vSelect from 'vue-select'
+    import Multiselect from 'vue-multiselect'
 
     import state from '../mixins/state'
     import slug from 'slug'
@@ -72,7 +86,7 @@
     export default {
         name: "Modal",
         mixins: [state],
-        components: {vSelect},
+        components: {Multiselect},
         props: ['type'],
         data: function () {
             return {
@@ -171,10 +185,9 @@
 </script>
 
 <style>
+    @import "~vue-multiselect/dist/vue-multiselect.min.css";
+
     .show-modal {
         display: block !important;
-    }
-    .dropdown-toggle::after {
-        display: none !important;
     }
 </style>
