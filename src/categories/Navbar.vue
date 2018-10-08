@@ -6,7 +6,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                <a class="navbar-brand" href="#">YT Subscription Manager</a>
+                <a class="navbar-brand" href="#">SubMan YouTube</a>
                 <ul class="navbar-nav nav nav-tabs ml-auto mr-auto mt-2 mt-lg-0">
                     <li class="nav-item">
                         <a class="nav-link active bg-outline-light text-danger" href="#"><strong>Categories</strong></a>
@@ -17,6 +17,7 @@
                         </a>
                     </li>
                 </ul>
+                <a class="nav-link text-white" href="https://massrain.github.io/yt-subs-manager/">About/Contact</a>
 
             </div>
         </nav>

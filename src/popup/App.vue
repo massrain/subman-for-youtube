@@ -6,7 +6,7 @@
                 <img :src="logoURL" class="logo-icon">
             </div>
             <div class="col-10">
-                <h1 class="title-text">Youtube Sup'Man</h1>
+                <h1 class="title-text">SubMan YouTube</h1>
             </div>
         </div>
         <div v-if="authorized" class="row justify-content-center" style="margin-top:10px; padding-bottom:10px;">
@@ -31,12 +31,12 @@
                     Options</a>
             </div>
             <div class="p-0 flex-fill">
-                <button id="btnLicense" type="button" class="btn btn-danger btn-sm">
+                <button id="btnLicense" type="button" href="https://github.com/massrain/yt-subs-manager/blob/master/LICENSE" class="btn btn-danger btn-sm">
                     <i class="fas fa-cog"></i> License
                 </button>
             </div>
             <div class="p-0 flex-fill">
-                <a class="btn btn-danger btn-sm" href="#" role="button"><i class="fas fa-info"></i> Info</a>
+                <a class="btn btn-danger btn-sm" href="https://massrain.github.io/yt-subs-manager/"><i class="fas fa-info"></i> About</a>
             </div>
         </div>
         <div v-else class="row justify-content-center" style="margin-top:10px; padding-bottom:10px;">

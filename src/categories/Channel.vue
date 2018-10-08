@@ -1,7 +1,7 @@
 <template>
     <div class="portfolio">
         <a :href="url" target="_blank">
-            <img class="card-img" :src="thumbnail" alt="">
+            <img class="card-img" :src="thumbnail">
         </a>
         <div class="desc">{{ title }}</div>
     </div>

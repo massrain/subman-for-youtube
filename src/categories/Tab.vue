@@ -8,9 +8,11 @@
         <div class="portfolio">
             <a @click="showModal()">
                 <img class="card-img"
-                     style="width: 60px"
-                     src="https://image.flaticon.com/icons/svg/149/149156.svg" alt="">
+                     style=""
+                     src="http://fs1.directupload.net/images/181008/apsq2zsr.png" alt="Add New">
             </a>
+                <p class="text-danger" style="padding-top:10px"><strong>Click to add new!</strong></p>
+ 
         </div>
         <modal @channels-updated="$emit('category-updated')"
                type="channel"
