@@ -56,7 +56,7 @@
 
         <section>
             <div class="footer sticky-bottom text-danger">
-                <strong>SubMan YouTube Subscription Manager - 2018</strong>
+                <strong>SubMan for YouTube - 2018</strong>
             </div>
         </section>
     </div>

@@ -6,7 +6,7 @@
                 <img :src="logoURL" class="logo-icon">
             </div>
             <div class="col-10">
-                <h1 class="title-text">SubMan YouTube</h1>
+                <h1 class="title-text">SubMan for YouTube</h1>
             </div>
         </div>
         <div v-if="authorized" class="row justify-content-center" style="margin-top:10px; padding-bottom:10px;">

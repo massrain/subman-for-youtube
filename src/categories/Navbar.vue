@@ -6,7 +6,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                <a class="navbar-brand" href="#">SubMan YouTube</a>
+                <a class="navbar-brand" href="#">SubMan for YouTube</a>
                 <ul class="navbar-nav nav nav-tabs ml-auto mr-auto mt-2 mt-lg-0">
                     <li class="nav-item">
                         <a class="nav-link active bg-outline-light text-danger" href="#"><strong>Categories</strong></a>
