@@ -81,7 +81,7 @@
     import Multiselect from 'vue-multiselect'
 
     import state from '../mixins/state'
-    import slug from 'slug'
+    import slugify from 'slugify'
 
     export default {
         name: "Modal",
@@ -148,8 +148,8 @@
                     this.validationMessage = 'Please provide at least one character.';
                     return false;
                 }
-                if (this.categories.some(value => value.slug === slug(self.models.category)) ||
-                    slug(this.models.category) === 'my-subscriptions') {
+                if (this.categories.some(value => value.slug === slugify(self.models.category)) ||
+                    slugify(this.models.category) === 'my-subscriptions') {
                     this.validationMessage = 'Sorry, this name already exists!';
                     return false;
                 }
@@ -161,7 +161,7 @@
                     case 'category':
                         if (! this.validateCategory()) return;
                         this.insertCategory(this.models.category);
-                        this.setActiveTabId(slug(this.models.category));
+                        this.setActiveTabId(slugify(this.models.category));
                         this.models.category = '';
                         break;
                     case 'subscription': return 'Update Channel\'s categories';

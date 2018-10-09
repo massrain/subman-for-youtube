@@ -23,7 +23,7 @@
 
 <script>
     import Category from './Category';
-    import slug from 'slug'
+    import slugify from 'slugify'
 
     export default {
         name: "App",
@@ -44,7 +44,7 @@
         },
         computed: {
             categorySlug() {
-                return slug(this.category);
+                return slugify(this.category);
             },
             state() {
                 chrome.storage.sync.get('STATE_AUTHORIZED', function(result) {

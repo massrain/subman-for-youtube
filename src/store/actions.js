@@ -1,4 +1,4 @@
-import slug from 'slug'
+import slugify from 'slugify'
 
 export const setUser = ({ commit }, payload) => {
     chrome.storage.local.set({user: payload});
@@ -27,7 +27,7 @@ export const setCategories = ({ commit }, payload) => {
 export const insertCategory = ({ commit }, payload) => {
     commit('appendCategories', {
         name: payload,
-        slug: slug(payload),
+        slug: slugify(payload),
         channels: []
     });
 };
