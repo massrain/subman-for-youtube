@@ -15,12 +15,29 @@
                         </li>
                         <li class="nav-item ml-1"
                             v-for="(category, index) in categories"
-                            @dblclick="deleteCategory(index)"
                             :key="category.slug"
                             @click="setActiveTabId(category.slug)">
+
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <a class="nav-link btn btn-outline-danger"
+                                   :class="{active: activateTab(category.slug)}"
+                                   :href="'#' + category.slug">
+                                    {{ category.name }}
+                                </a>
+
+                                <a class="btn btn-outline-dark"
+                                   :class="{active: activateTab(category.slug)}"
+                                   @click.prevent="deleteCategory(index)">
+                                    <strong>x</strong>
+                                </a>
+                            </div>
+                            <!--
                             <a class="nav-link btn-outline-danger"
                                :class="{active: activateTab(category.slug)}"
-                               :href="'#' + category.slug">{{ category.name }} <span class="badge badge-dark">X</span> </a>
+                               :href="'#' + category.slug">
+                                {{ category.name }}
+                                <span class="badge badge-dark" @click="deleteCategory(index)">X</span>
+                            </a> -->
                         </li>
                         <li class="nav-item ml-1">
                             <a class="nav-link btn-dark text-white"
@@ -100,7 +117,10 @@
                 if (this.bookmarksRootId) this.syncBookmarksFolder();
             },
             deleteCategory(id) {
-                this.categories.splice(id, 1);
+                if(confirm('Category and its channels will be deleted?')) {
+                    this.categories.splice(id, 1);
+                    this.activateTab('my-subscriptions');
+                }
             },
             getInitialConfig(isAsync) {
                 return {
