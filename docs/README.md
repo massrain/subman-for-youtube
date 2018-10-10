@@ -1,4 +1,4 @@
-###A Google Chrome extension to handle your YouTube subscriptions better!###
+###A Google Chrome extension to handle your YouTube subscriptions better!
 
 YouTube currently shows you your entire subscriptions in one single list. For more active users on the platform who has a lot of subscriptions; it is hard to roam in your subscriptions folder.
 
@@ -38,3 +38,10 @@ Click below to visit the extension' page and add it to your browser.
 
 You can now edit the app. This command watches modifications and also enables Hot Reloading.
 
+## License:
+
+[MIT License](../blob/master/LICENSE)
+
+## Privacy Policy
+
+[Link to Privacy Policy](/privacy_policy)
