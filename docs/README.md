@@ -1,4 +1,4 @@
-### SubMan for YouTube
+###A Google Chrome extension to handle your YouTube subscriptions better!###
 
 YouTube currently shows you your entire subscriptions in one single list. For more active users on the platform who has a lot of subscriptions; it is hard to roam in your subscriptions folder.
 
@@ -21,15 +21,19 @@ Click below to visit the extension' page and add it to your browser.
 ## For Developers:
 
 -Clone the repo: 
+
 ```git clone https://github.com/massrain/subman-for-youtube.git```
 
 -Put your Google API key into /src/credentials.example and rename it to credentials.json
+
 -Make your own manifest file like in /src/manifest.example or edit it; dont forget to rename it to manifest.json afterwards.
 
 -Use following command to install. (You need node.js>=8 and npm>=5)
+
 ```npm install```
 
 -Use following command to run the app. Wait for command to bundle; and then back to Chrome>Extensions and click "Load Unpacked"; select "dist" folder.
+
 ```npm run watch:dev```
 
 You can now edit the app. This command watches modifications and also enables Hot Reloading.
