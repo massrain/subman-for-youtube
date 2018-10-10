@@ -28,15 +28,13 @@
         <div v-if="authorized" class="row bg-danger text-white justify-content-center text-center">
             <div class="p-0 flex-fill">
                 <a id="btnOptions" class="btn btn-danger btn-sm" href="#" role="button"><i class="fas fa-cog"></i>
-                    Options</a>
+                    Options<span class="badge badge-dark">Soon</span></a>
             </div>
             <div class="p-0 flex-fill">
-                <button id="btnLicense" type="button" href="https://github.com/massrain/yt-subs-manager/blob/master/LICENSE" class="btn btn-danger btn-sm">
-                    <i class="fas fa-cog"></i> License
-                </button>
+                <a class="btn btn-danger btn-sm" target="_blank" href="https://github.com/massrain/yt-subs-manager/blob/master/LICENSE"><img src="http://fs1.directupload.net/images/181010/249duysm.png"/> License</a>
             </div>
             <div class="p-0 flex-fill">
-                <a class="btn btn-danger btn-sm" href="https://massrain.github.io/yt-subs-manager/"><i class="fas fa-info"></i> About</a>
+                <a class="btn btn-danger btn-sm" target="_blank" href="https://massrain.github.io/yt-subs-manager/"><img src="http://fs1.directupload.net/images/181010/td75z2on.png"> About</a>
             </div>
         </div>
         <div v-else class="row justify-content-center" style="margin-top:10px; padding-bottom:10px;">
@@ -142,16 +140,36 @@
         width: 300px;
     }
 
+    .badge{
+    padding-top: 0.25em;
+    padding-right: 0.25em;
+    padding-bottom: 0.25em;
+    padding-left: 0.1em;
+    top:-3px!important;
+    }
+
     h1 {
         font-family: 'Menlo', monospace;
-        font-size: 26px;
-        font-weight: 400;
+        font-size: 24px;
+        font-weight: 600;
         margin: 0;
         color: #d34242;
     }
 
+    /* Kenarlık fiksleri - çalışmadı :( */
+    /*
+    .bg-light{
+    margin-left:-15px!important;
+    margin-right:-15px!important;
+    }*/
+    /*
+    .row{
+    margin-right: 0px!important; 
+    margin-left: 0px!important;
+    }*/
+
     .title-text {
-        padding-top: 3px;
+        padding-top: 5px;
     }
 
     .logo-icon {
