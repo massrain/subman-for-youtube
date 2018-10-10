@@ -5,14 +5,14 @@
                  form-type="channel"
                  :key="channel.id"></channel>
 
-        <div class="portfolio">
+        <div class="portfolio add-new">
             <a @click="showModal()">
                 <img class="card-img"
                      style=""
                      src="http://fs5.directupload.net/images/181010/mghyhn36.png" alt="Add New">
             </a>
-                <p class="text-danger" style="padding-top:10px"><strong>Click to add new!</strong></p>
- 
+            <p class="text-danger" style="padding-top:10px"><strong>Click to add new!</strong></p>
+
         </div>
         <modal @channels-updated="$emit('category-updated')"
                type="channel"
@@ -49,4 +49,8 @@
 </script>
 
 <style>
+    .add-new {
+        border: none;
+        box-shadow: none;
+    }
 </style>
