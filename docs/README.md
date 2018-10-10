@@ -42,8 +42,8 @@ You can now edit the app. This command watches modifications and also enables Ho
 
 ## License:
 
-[MIT License](/LICENSE/)
+[MIT License](/subman-for-youtube/LICENSE/)
 
 ## Privacy Policy
 
-[Link to Privacy Policy](/docs/privacy_policy)
+[Link to Privacy Policy](/subman-for-youtube/docs/privacy_policy)
