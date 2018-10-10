@@ -20,7 +20,7 @@
                             @click="setActiveTabId(category.slug)">
                             <a class="nav-link btn-outline-danger"
                                :class="{active: activateTab(category.slug)}"
-                               :href="'#' + category.slug">{{ category.name }}</a>
+                               :href="'#' + category.slug">{{ category.name }} <span class="badge badge-dark">X</span> </a>
                         </li>
                         <li class="nav-item ml-1">
                             <a class="nav-link btn-dark text-white"

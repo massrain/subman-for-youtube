@@ -37,7 +37,7 @@
         border: 2px solid black;
         float: left;
         width: 140px;
-        height: 200px;
+        height: 182px;
         transition-duration: 0.4s;
         border-radius: 5px;
         animation: winanim 0.5s;
@@ -56,12 +56,13 @@
     }
 
     .desc {
+        font-size: 0.9rem; /* .body taginden de yapilabilir */
         padding: 5px;
         display: flex;
         align-items: center;
-        font-weight: 700;
+        font-weight: 620;
         width: 100%;
-        height: 64px;
+        height: 48px;
         position: absolute;
         border-top: 1px solid black;
         bottom: 0;
