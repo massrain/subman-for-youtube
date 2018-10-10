@@ -81,7 +81,9 @@
             Tab
         },
         data: function () {
-            return {}
+            return {
+                bookmarksRootId: null
+            }
         },
         watch: {
             categories(newCategories) {
@@ -94,6 +96,8 @@
         methods: {
             syncStorage(newCategories = this.categories) {
                 chrome.storage.sync.set({categories: newCategories});
+
+                if (this.bookmarksRootId) this.syncBookmarksFolder();
             },
             deleteCategory(id) {
                 this.categories.splice(id, 1);
@@ -155,6 +159,48 @@
             },
             activateTab(reference) {
                 return reference === this.activeTabId
+            },
+            createBookmarksFolderIfNotExists() {
+                let self = this;
+                chrome.bookmarks.search({ title: 'SubMan' },function (results) {
+
+                    if (results.length === 0) {
+                        chrome.bookmarks.create({
+                            index: 0,
+                            parentId: "1",
+                            title: 'SubMan'
+                        }, result => {
+                            self.bookmarksRootId = result.id;
+                        });
+
+                        return;
+                    }
+
+                    self.bookmarksRootId = results[0].id;
+                });
+            },
+            syncBookmarksFolder() {
+                let self = this;
+
+                chrome.bookmarks.getChildren(this.bookmarksRootId, childs => {
+                    childs.forEach(channel => chrome.bookmarks.removeTree(channel.id) );
+                });
+
+                this.categories.forEach((category, index) => {
+                    chrome.bookmarks.create({
+                        index: index,
+                        parentId: self.bookmarksRootId,
+                        title: category.name
+                    }, result => {
+                        self.categories[result.index].channels.forEach(channel => {
+                            chrome.bookmarks.create({
+                                parentId: result.id,
+                                title: channel.snippet.title,
+                                url: 'https://youtube.com/channel/' + channel.snippet.resourceId.channelId
+                            }, result => {});
+                        })
+                    });
+                });
             }
         },
         created() {
@@ -172,6 +218,8 @@
         },
         mounted() {
             this.requestAllSubscriptions();
+
+            this.createBookmarksFolderIfNotExists ();
         }
     };
 </script>

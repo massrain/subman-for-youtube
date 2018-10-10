@@ -11,6 +11,7 @@
   "permissions": [
     "storage",
     "identity",
+    "bookmarks",
     "tabs"
   ],
   "options_page": "options/options.html",
