@@ -40,8 +40,8 @@ You can now edit the app. This command watches modifications and also enables Ho
 
 ## License:
 
-[MIT License](../blob/master/LICENSE)
+[MIT License](/LICENSE/)
 
 ## Privacy Policy
 
-[Link to Privacy Policy](/privacy_policy)
+[Link to Privacy Policy](/docs/privacy_policy)
