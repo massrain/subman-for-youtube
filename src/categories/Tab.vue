@@ -5,8 +5,8 @@
                  form-type="channel"
                  :key="channel.id"></channel>
 
-        <div class="portfolio add-new">
-            <a @click="showModal()">
+        <div class="portfolio add-new"  @click="showModal()">
+            <a href="#">
                 <img class="card-img"
                      style=""
                      src="http://fs5.directupload.net/images/181010/mghyhn36.png" alt="Add New">
@@ -52,5 +52,9 @@
     .add-new {
         border: none;
         box-shadow: none;
+    }
+
+    .portfolio:hover {
+        border: 2px solid black;
     }
 </style>

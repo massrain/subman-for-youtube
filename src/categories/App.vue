@@ -8,7 +8,7 @@
                 <div class="row justify-content-center">
                     <ul class="nav nav-pills">
                         <li class="nav-item ml-1">
-                            <a class="nav-link btn-outline-danger"
+                            <a class="nav-link btn btn-outline-danger"
                                :class="{active: activateTab('my-subscriptions')}"
                                @click="setActiveTabId('my-subscriptions')"
                                href="#my-subscriptions">My Subscriptions</a>
@@ -31,16 +31,9 @@
                                     <strong>x</strong>
                                 </a>
                             </div>
-                            <!--
-                            <a class="nav-link btn-outline-danger"
-                               :class="{active: activateTab(category.slug)}"
-                               :href="'#' + category.slug">
-                                {{ category.name }}
-                                <span class="badge badge-dark" @click="deleteCategory(index)">X</span>
-                            </a> -->
                         </li>
                         <li class="nav-item ml-1">
-                            <a class="nav-link btn-dark text-white"
+                            <a class="nav-link btn btn-dark text-white"
                                @click.prevent="toggleModalVisible({formType: 'category', relatedId: 0})">+ Category</a>
                         </li>
                     </ul>
