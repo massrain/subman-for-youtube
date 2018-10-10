@@ -31,10 +31,10 @@
                     Options<span class="badge badge-dark">Soon</span></a>
             </div>
             <div class="p-0 flex-fill">
-                <a class="btn btn-danger btn-sm" target="_blank" href="https://github.com/massrain/yt-subs-manager/blob/master/LICENSE"><img src="http://fs1.directupload.net/images/181010/249duysm.png"/> License</a>
+                <a class="btn btn-danger btn-sm" target="_blank" href="https://github.com/massrain/subman-for-youtube/blob/master/LICENSE"><img src="http://fs1.directupload.net/images/181010/249duysm.png"/> License</a>
             </div>
             <div class="p-0 flex-fill">
-                <a class="btn btn-danger btn-sm" target="_blank" href="https://massrain.github.io/yt-subs-manager/"><img src="http://fs1.directupload.net/images/181010/td75z2on.png"> About</a>
+                <a class="btn btn-danger btn-sm" target="_blank" href="https://massrain.github.io/subman-for-youtube/"><img src="http://fs1.directupload.net/images/181010/td75z2on.png"> About</a>
             </div>
         </div>
         <div v-else class="row justify-content-center" style="margin-top:10px; padding-bottom:10px;">
@@ -164,7 +164,7 @@
     }*/
     /*
     .row{
-    margin-right: 0px!important; 
+    margin-right: 0px!important;
     margin-left: 0px!important;
     }*/
 

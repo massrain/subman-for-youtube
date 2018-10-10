@@ -17,7 +17,7 @@
                         </a>
                     </li>
                 </ul>
-                <a class="nav-link text-white" href="https://massrain.github.io/yt-subs-manager/">About/Contact</a>
+                <a class="nav-link text-white" href="https://massrain.github.io/subman-for-youtube/">About/Contact</a>
 
             </div>
         </nav>
