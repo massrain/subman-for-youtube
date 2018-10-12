@@ -14,7 +14,7 @@ export default {
 
     updateChannels: (state, payload) => {
         // TODO: solve this workaround with a better solution.
-        if (! state.modal.relatedId) return;
+        if (state.modal.relatedId === null) return;
         state.categories[state.modal.relatedId].channels = payload.channels;
     },
     updateCategories: (state, payload) => state.categories = payload,
