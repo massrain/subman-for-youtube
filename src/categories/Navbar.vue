@@ -1,5 +1,5 @@
 <template>
-    <section name="NAVBAR">
+    <section>
         <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #cc181e; padding-bottom: 0;">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
                     aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,11 +9,18 @@
                 <a class="navbar-brand" href="#">SubMan for YouTube</a>
                 <ul class="navbar-nav nav nav-tabs ml-auto mr-auto mt-2 mt-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active bg-outline-light text-danger" href="#"><strong>Categories</strong></a>
+                        <a class="nav-link"
+                           :class="classes('my-categories')"
+                           @click.prevent="activate('my-categories')"
+                           href="#">
+                            Categories
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="#">
-                            Latest Videos <span class="badge badge-dark">Soon</span>
+                        <a class="nav-link" href="#last-videos"
+                           :class="classes('last-videos')"
+                           @click.prevent="activate('last-videos')">
+                            Latest Videos
                         </a>
                     </li>
                 </ul>
@@ -29,10 +36,24 @@
         name: "Navbar",
         props: [],
         data: function () {
-            return {}
+            return {
+                current: 'my-categories'
+            }
         },
-        methods: {},
-        mounted() {
+        methods: {
+            isActive(reference) {
+                return this.current === reference;
+            },
+            activate(reference) {
+                this.current = reference;
+                this.$emit('main-tab-selected', reference);
+            },
+            classes(reference) {
+                return {
+                    'active bg-outline-light text-danger font-weight-bold': this.isActive(reference),
+                    'text-white': ! this.isActive(reference)
+                }
+            }
         }
     }
 </script>

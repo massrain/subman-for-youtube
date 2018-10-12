@@ -1,17 +1,23 @@
 <template>
     <div :class="{'modal-open': modalVisible}" v-if="authorized">
-        <navbar></navbar>
+        <navbar @main-tab-selected="setActiveMainTab"></navbar>
 
         <section style="padding-bottom:100px">
             <div class="container-fluid" style="margin-top:10px;padding-bottom:100px">
 
                 <div class="row justify-content-center">
                     <ul class="nav nav-pills">
-                        <li class="nav-item ml-1">
+                        <li class="nav-item ml-1" v-show="activeMainTab === 'my-categories'">
                             <a class="nav-link btn btn-outline-danger"
                                :class="{active: activateTab('my-subscriptions')}"
                                @click="setActiveTabId('my-subscriptions')"
                                href="#my-subscriptions">My Subscriptions</a>
+                        </li>
+                        <li class="nav-item ml-1" v-show="activeMainTab === 'last-videos'">
+                            <a class="nav-link btn btn-outline-danger"
+                               :class="{active: activateTab('my-last-videos')}"
+                               @click="setActiveTabId('my-last-videos')"
+                               href="#my-last-videos">Last Videos</a>
                         </li>
                         <li class="nav-item ml-1"
                             v-for="(category, index) in categories"
@@ -26,13 +32,14 @@
                                 </a>
 
                                 <a class="btn btn-outline-dark"
+                                   v-if="activeMainTab === 'my-categories'"
                                    :class="{active: activateTab(category.slug)}"
                                    @click.prevent="deleteCategory(index)">
                                     <strong>x</strong>
                                 </a>
                             </div>
                         </li>
-                        <li class="nav-item ml-1">
+                        <li class="nav-item ml-1" v-show="activeMainTab === 'my-categories'">
                             <a class="nav-link btn btn-dark text-white"
                                @click.prevent="toggleModalVisible({formType: 'category', relatedId: null})">+ Category</a>
                         </li>
@@ -42,7 +49,7 @@
                 <hr noshade class="mt-2">
 
                 <div class="container">
-                    <div class="tab-content">
+                    <div class="tab-content" v-show="activeMainTab === 'my-categories'">
                         <div class="tab-pane fade"
                              :class="{'show active': activateTab('my-subscriptions')}"
                              role="tabpanel">
@@ -58,10 +65,25 @@
                              :active="activateTab(category.slug)"
                              :key="category.id"></tab>
                     </div>
+                    <div class="tab-content" v-show="activeMainTab === 'last-videos'">
+
+                        <div class="tab-pane fade"
+                             :class="{'show active': activateTab('my-last-videos')}"
+                             role="tabpanel">
+                            <video-box v-for="(subscription, index) in subscriptions"
+                                     :data="subscription"
+                                     form-type="subscription"
+                                     :key="subscription.id"></video-box>
+                        </div>
+
+                        <video-tab v-for="(category, index) in categories"
+                             :index="index"
+                             :active="activateTab(category.slug)"
+                             :key="category.id"></video-tab>
+                    </div>
                 </div>
             </div>
         </section>
-
         <modal type="category"></modal>
 
         <section>
@@ -80,19 +102,24 @@
     import Modal from './Modal'
     import Channel from './Channel'
     import Tab from './Tab'
+    import VideoTab from './VideoTab'
+    import VideoBox from "./VideoBox";
 
     export default {
         name: "App",
         mixins: [state],
         components: {
+            VideoBox,
             Channel,
             Navbar,
             Modal,
-            Tab
+            Tab,
+            VideoTab,
         },
         data: function () {
             return {
-                bookmarksRootId: null
+                bookmarksRootId: null,
+                activeMainTab: 'my-categories'
             }
         },
         watch: {
@@ -104,6 +131,13 @@
             }
         },
         methods: {
+            setActiveMainTab(tab) {
+
+                if (tab === 'last-videos') this.setActiveTabId('my-last-videos');
+                else this.setActiveTabId('my-subscriptions');
+
+                this.activeMainTab = tab;
+            },
             syncStorage(newCategories = this.categories) {
                 chrome.storage.sync.set({categories: newCategories});
 
