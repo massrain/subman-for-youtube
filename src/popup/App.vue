@@ -27,8 +27,10 @@
         </div>
         <div v-if="authorized" class="row bg-danger text-white justify-content-center text-center">
             <div class="p-0 flex-fill">
-                <a id="btnOptions" class="btn btn-danger btn-sm" href="#" role="button"><i class="fas fa-cog"></i>
-                    Options<span class="badge badge-dark">Soon</span></a>
+                <a id="btnOptions" class="btn btn-danger btn-sm"
+                   @click.prevent="openOptionsTab" href="#" role="button">
+                    <i class="fas fa-cog"></i> Options
+                </a>
             </div>
             <div class="p-0 flex-fill">
                 <a class="btn btn-danger btn-sm" target="_blank" href="https://github.com/massrain/subman-for-youtube/blob/master/LICENSE"><img src="http://fs1.directupload.net/images/181010/249duysm.png"/> License</a>
@@ -65,6 +67,9 @@
         computed: {
             logoURL() {
                 return chrome.runtime.getURL('popup/images/icon-150.png');
+            },
+            optionsURL() {
+                return chrome.runtime.getURL('options/options.html');
             },
             categoriesURL() {
                 return chrome.runtime.getURL('categories/categories.html');
@@ -119,6 +124,9 @@
             },
             openCategoriesTab() {
                 chrome.tabs.create({url: this.categoriesURL});
+            },
+            openOptionsTab() {
+                chrome.tabs.create({url: this.optionsURL});
             }
         },
         mounted() {
