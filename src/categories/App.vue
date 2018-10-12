@@ -34,7 +34,7 @@
                         </li>
                         <li class="nav-item ml-1">
                             <a class="nav-link btn btn-dark text-white"
-                               @click.prevent="toggleModalVisible({formType: 'category', relatedId: 0})">+ Category</a>
+                               @click.prevent="toggleModalVisible({formType: 'category', relatedId: null})">+ Category</a>
                         </li>
                     </ul>
                 </div>
@@ -195,8 +195,8 @@
             syncBookmarksFolder() {
                 let self = this;
 
-                chrome.bookmarks.getChildren(this.bookmarksRootId, childs => {
-                    childs.forEach(channel => chrome.bookmarks.removeTree(channel.id) );
+                chrome.bookmarks.getChildren(this.bookmarksRootId, children => {
+                    children.forEach(child => chrome.bookmarks.removeTree(child.id) );
                 });
 
                 this.categories.forEach((category, index) => {

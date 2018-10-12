@@ -99,9 +99,9 @@
             }
         },
         watch: {
-            'models.channels': function () {
+            'models.channels': function (newChannels) {
                 this.setChannels({
-                    channels: this.models.channels.map(item => {
+                    channels: newChannels.map(item => {
                         return {
                             id: item.id,
                             snippet: {

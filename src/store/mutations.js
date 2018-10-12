@@ -13,6 +13,8 @@ export default {
     updateActiveTabId: (state, payload) => state.activeTabId = payload,
 
     updateChannels: (state, payload) => {
+        // TODO: solve this workaround with a better solution.
+        if (! state.modal.relatedId) return;
         state.categories[state.modal.relatedId].channels = payload.channels;
     },
     updateCategories: (state, payload) => state.categories = payload,

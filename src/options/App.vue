@@ -96,8 +96,8 @@
             syncBookmarksFolder() {
                 let self = this;
 
-                chrome.bookmarks.getChildren(this.bookmarksRootId, childs => {
-                    childs.forEach(channel => chrome.bookmarks.removeTree(channel.id) );
+                chrome.bookmarks.getChildren(this.bookmarksRootId, children => {
+                    children.forEach(child => chrome.bookmarks.removeTree(child.id) );
                 });
 
                 this.categories.forEach((category, index) => {
