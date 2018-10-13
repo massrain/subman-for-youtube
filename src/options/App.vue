@@ -61,13 +61,14 @@
 </template>
 
 <script>
+    import locales from "../mixins/locales"
     import state from '../mixins/state'
     import bookmarks from '../mixins/bookmarks'
     import Navbar from './Navbar'
 
     export default {
         name: "App",
-        mixins: [state, bookmarks],
+        mixins: [locales, state, bookmarks],
         components: {
             Navbar
         },

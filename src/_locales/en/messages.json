@@ -1,0 +1,16 @@
+{
+  "extension_name": {
+    "message": "SubMan for YouTube"
+  },
+  "extension_description": {
+    "message": "Subscription Manager for YouTube"
+  },
+
+  "popup_greeting": {
+    "message": "Hello"
+  },
+
+  "categories": {
+    "message": "Categories"
+  }
+}

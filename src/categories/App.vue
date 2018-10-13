@@ -95,6 +95,7 @@
 </template>
 
 <script>
+    import locales from "../mixins/locales"
     import state from '../mixins/state'
     import bookmarks from '../mixins/bookmarks'
     import API_KEY from '../credentials.json'
@@ -108,7 +109,7 @@
 
     export default {
         name: "App",
-        mixins: [state, bookmarks],
+        mixins: [locales, state, bookmarks],
         components: {
             VideoBox,
             Channel,

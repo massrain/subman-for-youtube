@@ -6,7 +6,7 @@
                 <img :src="logoURL" class="logo-icon">
             </div>
             <div class="col-10">
-                <h1 class="title-text">SubMan for YouTube</h1>
+                <h1 class="title-text">{{ _('extension_name') }}</h1>
             </div>
         </div>
         <div v-if="authorized" class="row justify-content-center" style="margin-top:10px; padding-bottom:10px;">
@@ -17,7 +17,7 @@
                      style="width: 25px; height: 25px;"
                      :src="user.thumbnail">
                 <h6 class="alert-heading">
-                    Hello <strong v-if="user">{{ user.title }}!</strong>
+                    {{ _('popup_greeting') }} <strong v-if="user">{{ user.title }}!</strong>
                 </h6>
                 <p class="mb-0">
                     You have successfully authorized. You can now move to
@@ -55,12 +55,13 @@
 </template>
 
 <script>
+    import locales from "../mixins/locales"
     import state from "../mixins/state"
     import API_KEY from '../credentials.json'
 
     export default {
         name: "App",
-        mixins: [state],
+        mixins: [locales, state],
         data() {
             return {}
         },

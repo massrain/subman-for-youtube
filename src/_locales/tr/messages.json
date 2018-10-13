@@ -1,0 +1,13 @@
+{
+  "extension_description": {
+    "message": "Youtube Abonelik Organizatörü"
+  },
+
+  "popup_greeting": {
+    "message": "Merhaba"
+  },
+
+  "categories": {
+    "message": "Kategoriler"
+  }
+}

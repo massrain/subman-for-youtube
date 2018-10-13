@@ -1,8 +1,9 @@
 {
-  "name": "SubMan for YouTube",
-  "description": "Youtube Subscription Manager",
+  "name": "__MSG_extension_name__",
+  "description": "__MSG_extension_description__",
   "version": "1.0.0",
   "manifest_version": 2,
+  "default_locale": "en",
   "key": "<extension-key>",
   "oauth2": {
     "client_id": "",
@@ -24,7 +25,7 @@
     "popup/images/*.png"
   ],
   "browser_action": {
-    "default_title": "Youtube Subscription Manager",
+    "default_title": "__MSG_extension_name__",
     "default_popup": "popup/popup.html"
   },
   "background": {
