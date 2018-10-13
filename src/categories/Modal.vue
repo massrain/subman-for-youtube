@@ -25,7 +25,6 @@
                                            v-model="models.category"
                                            @keyup.enter="add"
                                            @keydown="validationMessage = ''"
-                                           placeholder="Name"
                                            class="form-control"
                                            :class="{'is-invalid': isInvalid}">
                                     <div class="invalid-feedback">{{ validationMessage }}</div>
@@ -49,7 +48,7 @@
                                             open-direction="below"
                                             :close-on-select="false"
                                             :preserve-search="true"
-                                            placeholder="Pick some"
+                                            :placeholder="_('placeholder_channels')"
                                             label="title"
                                             track-by="id"
                                             :preselect-first="true">

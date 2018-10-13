@@ -22,7 +22,7 @@
   },
   "about_contact": {
     "message": "Hakkında/İletişim"
-  }, 
+  },
   "not_authorized_1": {
     "message": "Uzantımızın yetkilendirme onayı'nı henüz yapmadınız."
   },
@@ -34,7 +34,7 @@
   },
   "btn_authorize_now": {
     "message": "Şimdi yetkilendir"
-  }, 
+  },
     "btn_my_categories": {
     "message": "Kategorilerim"
   },
@@ -49,10 +49,10 @@
   },
     "latest_videos": {
     "message": "Son Videolar"
-  }, 
+  },
     "click_to_add_new": {
     "message": "Yeni eklemek için tıklayın."
-  }, 
+  },
     "add": {
     "message": "Ekle"
   },
@@ -70,6 +70,9 @@
   },
     "create_new_category": {
     "message": "Yeni bir kategori oluşturun"
+  },
+  "placeholder_channels": {
+    "message": "Birkaç kanal seçin"
   },
     "update_channels_category": {
     "message": "Kanal'ın bağlı olduğu kategorileri düzenleyin"

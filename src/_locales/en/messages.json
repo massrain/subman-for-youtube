@@ -10,43 +10,43 @@
   },
   "succesful_authorization": {
     "message": "You have successfully authorized. You can now move to your categories page."
-  }, 
+  },
   "options": {
     "message": "Options"
-  }, 
+  },
   "license": {
     "message": "License"
-  }, 
+  },
   "about": {
     "message": "About"
-  },  
+  },
   "about_contact": {
     "message": "About/Contact"
-  }, 
+  },
   "not_authorized_1": {
     "message": "You have not authorized our extension."
-  },  
+  },
   "not_authorized_2": {
     "message": "To continue, you must authorize by clicking the \"Authorize\" button below."
-  },  
+  },
   "extension_permission_warning": {
     "message": "This extension <strong>only reads</strong> your YouTube account's subscriptions as you will see on the permissions page."
-  }, 
+  },
   "btn_authorize_now": {
     "message": "Authorize Now"
   },
     "btn_my_categories": {
     "message": "My Categories"
-  }, 
+  },
     "my_subscriptions": {
     "message": "My Subscriptions"
-  }, 
+  },
    "last_videos": {
     "message": "Last Videos"
-  }, 
+  },
     "categories": {
     "message": "Categories"
-  }, 
+  },
     "latest_videos": {
     "message": "Latest Videos"
   },
@@ -55,13 +55,13 @@
   },
     "add": {
     "message": "Add"
-  }, 
+  },
      "plus_category": {
     "message": "+ Category"
-  }, 
+  },
     "opt_bookmarks_folder_name": {
     "message": "SubMan Bookmarks folder name:"
-  },  
+  },
     "opt_bookmarks_category_sync": {
     "message": "Sync my custom categories to Chrome bookmarks."
   },
@@ -70,6 +70,9 @@
   },
     "create_new_category": {
     "message": "Create a new category "
+  },
+    "placeholder_channels": {
+    "message": "Pick Some Channel(s)"
   },
     "update_channels_category": {
     "message": "Update Channel's categories"
