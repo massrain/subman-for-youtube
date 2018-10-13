@@ -20,7 +20,11 @@
                                         <h6>Sync my custom categories to Chrome bookmarks.</h6>
                                     </div>
                                     <div class="col-4">
-                                        <input class="form-control" type="checkbox" disabled>
+                                        <input class="form-control"
+                                               ref="bookmarksActive"
+                                               :checked="bookmarksActive"
+                                               @input="updateActive"
+                                               type="checkbox">
                                     </div>
                                 </div>
                                 <hr>
@@ -29,9 +33,16 @@
                                         <h6>SubMan Bookmarks folder name:</h6>
                                     </div>
                                     <div class="col-4">
-                                        <input class="form-control"
-                                               value="SubMan"
-                                               type="text" disabled>
+                                        <div class="form-group">
+                                            <input class="form-control"
+                                                   :disabled="! bookmarksActive"
+                                                   :value="bookmarksFolderName"
+                                                   @input="editFolderName"
+                                                   @keydown="validationMessage = ''"
+                                                   :class="{'is-invalid': isInvalid }"
+                                                   type="text">
+                                            <div class="invalid-feedback">{{ validationMessage }}</div>
+                                        </div>
                                     </div>
                                 </div>
                             </form>
@@ -40,8 +51,6 @@
                 </div>
             </div>
         </section>
-
-        <modal type="category"></modal>
 
         <section>
             <div class="footer sticky-bottom text-danger">
@@ -53,87 +62,56 @@
 
 <script>
     import state from '../mixins/state'
-    import API_KEY from '../credentials.json'
-
+    import bookmarks from '../mixins/bookmarks'
     import Navbar from './Navbar'
 
     export default {
         name: "App",
-        mixins: [state],
+        mixins: [state, bookmarks],
         components: {
             Navbar
         },
         data: function () {
             return {
-                bookmarksRootId: null
+                validationMessage: ''
+            }
+        },
+        computed: {
+            isInvalid() {
+                return this.validationMessage.length > 0;
             }
         },
         methods: {
-            syncStorage(newCategories = this.categories) {
-                chrome.storage.sync.set({categories: newCategories});
+            validateBookmarksFolderName(value) {
+                if (value.length > 50) {
+                    this.validationMessage = 'Category name can not be longer than 50 characters.';
+                    return false;
+                }
+                if (value === '') {
+                    this.validationMessage = 'Please provide at least one character.';
+                    return false;
+                }
 
-                if (this.bookmarksRootId) this.syncBookmarksFolder();
+                return true;
             },
-            createBookmarksFolderIfNotExists() {
-                let self = this;
-                chrome.bookmarks.search({ title: 'SubMan' },function (results) {
+            updateActive(event) {
+                this.setBookmarksActive(event.target.checked);
 
-                    if (results.length === 0) {
-                        chrome.bookmarks.create({
-                            index: 0,
-                            parentId: "1",
-                            title: 'SubMan'
-                        }, result => {
-                            self.bookmarksRootId = result.id;
-                        });
+                if (event.target.checked) {
+                    this.createBookmarksFolderIfNotExists();
+                    return;
+                }
 
-                        return;
-                    }
-
-                    self.bookmarksRootId = results[0].id;
-                });
+                this.removeBookmarksFolderIfExists();
             },
-            syncBookmarksFolder() {
-                let self = this;
+            editFolderName(event) {
+                if (this.validateBookmarksFolderName(event.target.value))
+                {
+                    this.setBookmarksFolderName(event.target.value);
 
-                chrome.bookmarks.getChildren(this.bookmarksRootId, children => {
-                    children.forEach(child => chrome.bookmarks.removeTree(child.id) );
-                });
-
-                this.categories.forEach((category, index) => {
-                    chrome.bookmarks.create({
-                        index: index,
-                        parentId: self.bookmarksRootId,
-                        title: category.name
-                    }, result => {
-                        self.categories[result.index].channels.forEach(channel => {
-                            chrome.bookmarks.create({
-                                parentId: result.id,
-                                title: channel.snippet.title,
-                                url: 'https://youtube.com/channel/' + channel.snippet.resourceId.channelId
-                            }, result => {});
-                        })
-                    });
-                });
+                    this.updateBookmarksFolderName();
+                }
             }
-        },
-        created() {
-            // let self = this;
-            // chrome.storage.sync.get('categories', function (result) {
-            //
-            //     if (result.categories) {
-            //         self.setCategories(result.categories);
-            //
-            //         return;
-            //     }
-            //
-            //     self.setCategories([]);
-            // });
-        },
-        mounted() {
-            // this.requestAllSubscriptions();
-
-            // this.createBookmarksFolderIfNotExists ();
         }
     };
 </script>

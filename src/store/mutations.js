@@ -2,6 +2,10 @@ export default {
     updateUser: (state, payload) => state.user = payload,
     updateAuthToken: (state, payload) => state.authToken = payload,
 
+    updateBookmarksRootId: (state, payload) => state.bookmarksRootId = payload,
+    updateBookmarksActive: (state, payload) => state.options.bookmarks.active = payload,
+    updateBookmarksFolderName: (state, payload) => state.options.bookmarks.folderName = payload,
+
     flipModalVisible: (state, payload) => {
         if (payload){
             state.modal.relatedId = payload.relatedId;

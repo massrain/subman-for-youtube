@@ -2,11 +2,16 @@ import {mapState, mapGetters, mapActions} from 'vuex'
 
 export default {
     computed: {
-        ...mapState([]),
+        ...mapState({
+        }),
         ...mapGetters({
             authorized: 'isAuthTokenExists',
             authToken: 'getAuthToken',
             user: 'getUser',
+
+            bookmarksRootId: 'getBookmarksRootId',
+            bookmarksActive: 'getBookmarksActive',
+            bookmarksFolderName: 'getBookmarksFolderName',
 
             modalVisible: 'getModalVisible',
             modalType: 'getModalType',
@@ -23,6 +28,10 @@ export default {
     methods: mapActions([
         'setUser',
         'setAuthToken',
+
+        'setBookmarksRootId',
+        'setBookmarksActive',
+        'setBookmarksFolderName',
 
         'setActiveTabId',
 
@@ -43,6 +52,16 @@ export default {
         });
         chrome.storage.local.get('user', result => {
             if(result.user) self.$store.state.user = result.user;
+        });
+
+        chrome.storage.sync.get('bookmarksRootId', result => {
+            if(result.bookmarksRootId) self.$store.state.bookmarksRootId = result.bookmarksRootId;
+        });
+        chrome.storage.sync.get('bookmarksActive', result => {
+            if(result.bookmarksActive) self.$store.state.options.bookmarks.active = result.bookmarksActive;
+        });
+        chrome.storage.sync.get('bookmarksFolderName', result => {
+            if(result.bookmarksFolderName) self.$store.state.options.bookmarks.folderName = result.bookmarksFolderName;
         });
     }
 }

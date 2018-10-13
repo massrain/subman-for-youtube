@@ -11,6 +11,22 @@ export const setAuthToken = ({ commit }, payload) => {
     commit('updateAuthToken', payload);
 };
 
+export const setBookmarksRootId = ({ commit }, payload) => {
+    chrome.storage.sync.set({bookmarksRootId: payload});
+
+    commit('updateBookmarksRootId', payload);
+};
+export const setBookmarksActive = ({ commit }, payload) => {
+    chrome.storage.sync.set({bookmarksActive: payload});
+
+    commit('updateBookmarksActive', payload);
+};
+export const setBookmarksFolderName = ({ commit }, payload) => {
+    chrome.storage.sync.set({bookmarksFolderName: payload});
+
+    commit('updateBookmarksFolderName', payload);
+};
+
 export const toggleModalVisible = ({ commit }, payload) => {
     commit('flipModalVisible', payload);
 };

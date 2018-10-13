@@ -96,6 +96,7 @@
 
 <script>
     import state from '../mixins/state'
+    import bookmarks from '../mixins/bookmarks'
     import API_KEY from '../credentials.json'
 
     import Navbar from './Navbar'
@@ -107,7 +108,7 @@
 
     export default {
         name: "App",
-        mixins: [state],
+        mixins: [state, bookmarks],
         components: {
             VideoBox,
             Channel,
@@ -118,7 +119,6 @@
         },
         data: function () {
             return {
-                bookmarksRootId: null,
                 activeMainTab: 'my-categories'
             }
         },
@@ -141,7 +141,7 @@
             syncStorage(newCategories = this.categories) {
                 chrome.storage.sync.set({categories: newCategories});
 
-                if (this.bookmarksRootId) this.syncBookmarksFolder();
+                this.syncBookmarksFolder();
             },
             deleteCategory(id) {
                 if(confirm('Category and its channels will be deleted?')) {
@@ -206,48 +206,6 @@
             },
             activateTab(reference) {
                 return reference === this.activeTabId
-            },
-            createBookmarksFolderIfNotExists() {
-                let self = this;
-                chrome.bookmarks.search({ title: 'SubMan' },function (results) {
-
-                    if (results.length === 0) {
-                        chrome.bookmarks.create({
-                            index: 0,
-                            parentId: "1",
-                            title: 'SubMan'
-                        }, result => {
-                            self.bookmarksRootId = result.id;
-                        });
-
-                        return;
-                    }
-
-                    self.bookmarksRootId = results[0].id;
-                });
-            },
-            syncBookmarksFolder() {
-                let self = this;
-
-                chrome.bookmarks.getChildren(this.bookmarksRootId, children => {
-                    children.forEach(child => chrome.bookmarks.removeTree(child.id) );
-                });
-
-                this.categories.forEach((category, index) => {
-                    chrome.bookmarks.create({
-                        index: index,
-                        parentId: self.bookmarksRootId,
-                        title: category.name
-                    }, result => {
-                        self.categories[result.index].channels.forEach(channel => {
-                            chrome.bookmarks.create({
-                                parentId: result.id,
-                                title: channel.snippet.title,
-                                url: 'https://youtube.com/channel/' + channel.snippet.resourceId.channelId
-                            }, result => {});
-                        })
-                    });
-                });
             }
         },
         created() {
@@ -265,8 +223,6 @@
         },
         mounted() {
             this.requestAllSubscriptions();
-
-            this.createBookmarksFolderIfNotExists ();
         }
     };
 </script>

@@ -3,6 +3,10 @@ export const getUser = state => state.user;
 export const getAuthToken = state => state.authToken;
 export const isAuthTokenExists = state => state.authToken !== null;
 
+export const getBookmarksRootId = state => state.bookmarksRootId;
+export const getBookmarksActive = state => state.options.bookmarks.active;
+export const getBookmarksFolderName = state => state.options.bookmarks.folderName;
+
 export const getModalVisible = state => state.modal.visible;
 export const getModalType = state => state.modal.formType;
 export const getModalRelation = state => state.modal.relatedId;

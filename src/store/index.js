@@ -10,6 +10,13 @@ Vue.use(Vuex);
 let state = {
     authToken: null,
     user: null,
+    bookmarksRootId: '',
+    options: {
+        bookmarks: {
+            active: false,
+            folderName: 'SubMan'
+        }
+    },
     modal: {
         visible: false,
         relatedId: null,
