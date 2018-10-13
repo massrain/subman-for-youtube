@@ -1,13 +1,96 @@
 {
-  "extension_description": {
-    "message": "Youtube Abonelik Organizatörü"
+  "extension_name": {
+    "message": "SubMan for YouTube™"
   },
-
+  "extension_description": {
+    "message": "YouTube Abonelik Organizatörü"
+  },
   "popup_greeting": {
     "message": "Merhaba"
   },
-
-  "categories": {
+  "succesful_authorization": {
+    "message": "Başarıyla yetkilendirme onayı yaptınız. Kategorilerim sayfasına geçebilirsiniz."
+  },
+  "options": {
+    "message": "Ayarlar"
+  },
+  "license": {
+    "message": "Lisans"
+  },
+  "about": {
+    "message": "Hakkında"
+  },
+  "about_contact": {
+    "message": "Hakkında/İletişim"
+  }, 
+  "not_authorized_1": {
+    "message": "Uzantımızın yetkilendirme onayı'nı henüz yapmadınız."
+  },
+  "not_authorized_2": {
+    "message": "Devam etmek için, aşağıdaki \"Yetkilendir\" butonuna tıklayınız."
+  },
+  "extension_permission_warning": {
+    "message": "Bu uygulama, izin sayfasında da görebileceğiniz gibi; <strong>sadece</strong> YouTube hesabınızdaki abonelikleri okur."
+  },
+  "btn_authorize_now": {
+    "message": "Şimdi yetkilendir"
+  }, 
+    "btn_my_categories": {
+    "message": "Kategorilerim"
+  },
+    "my_subscriptions": {
+    "message": "Aboneliklerim"
+  },
+    "last_videos": {
+    "message": "Son Videolar"
+  },
+    "categories": {
     "message": "Kategoriler"
+  },
+    "latest_videos": {
+    "message": "Son Videolar"
+  }, 
+    "click_to_add_new": {
+    "message": "Yeni eklemek için tıklayın."
+  }, 
+    "add": {
+    "message": "Ekle"
+  },
+    "plus_category": {
+    "message": "+ Kategori"
+  },
+    "opt_bookmarks_folder_name": {
+    "message": "SubMan Yer imleri klasörü ismi:"
+  },
+    "opt_bookmarks_category_sync": {
+    "message": "Kategorilerimi, yer imi olarak da kaydet."
+  },
+    "general_options": {
+    "message": "Genel ayarlar"
+  },
+    "create_new_category": {
+    "message": "Yeni bir kategori oluşturun"
+  },
+    "update_channels_category": {
+    "message": "Kanal'ın bağlı olduğu kategorileri düzenleyin"
+  },
+    "add_a_new_channel": {
+    "message": "Yeni bir kanal ekle"
+  },
+    "category_name_too_long": {
+    "message": "Kategori ismi 100 karakterden fazla olamaz."
+  },
+    "provide_a_character": {
+    "message": "Lütfen en az bir karakter girin."
+  },
+    "already_exists": {
+    "message": "Bu isim zaten mevcut!"
+  },
+      "options_category_long_error": {
+    "message": "Kategori ismi 50 karakterden uzun olamaz."
+  },
+      "options_category_short_error": {
+    "message": "Lütfen en az bir karakter giriniz."
   }
+
 }

@@ -9,13 +9,14 @@
 
 <script>
     import state from '../mixins/state'
+    import locales from "../mixins/locales"
     import API_KEY from '../credentials.json'
 
     import axios from 'axios'
 
     export default {
         name: "video-box",
-        mixins: [state],
+        mixins: [locales, state],
         props: ['data', 'form-type'],
         data: function () {
             return {
@@ -54,7 +55,7 @@
         margin: 5px;
         border: 2px solid black;
         float: left;
-        width: 230px;
+        width: 250px;
         height: 230px;
         transition-duration: 0.4s;
         border-radius: 5px;

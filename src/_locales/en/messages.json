@@ -1,16 +1,95 @@
 {
   "extension_name": {
-    "message": "Subman for YouTube™"
+    "message": "SubMan for YouTube™"
   },
   "extension_description": {
     "message": "Subscription Manager for YouTube"
   },
-
   "popup_greeting": {
     "message": "Hello"
   },
-
-  "categories": {
+  "succesful_authorization": {
+    "message": "You have successfully authorized. You can now move to your categories page."
+  }, 
+  "options": {
+    "message": "Options"
+  }, 
+  "license": {
+    "message": "License"
+  }, 
+  "about": {
+    "message": "About"
+  },  
+  "about_contact": {
+    "message": "About/Contact"
+  }, 
+  "not_authorized_1": {
+    "message": "You have not authorized our extension."
+  },  
+  "not_authorized_2": {
+    "message": "To continue, you must authorize by clicking the \"Authorize\" button below."
+  },  
+  "extension_permission_warning": {
+    "message": "This extension <strong>only reads</strong> your YouTube account's subscriptions as you will see on the permissions page."
+  }, 
+  "btn_authorize_now": {
+    "message": "Authorize Now"
+  },
+    "btn_my_categories": {
+    "message": "My Categories"
+  }, 
+    "my_subscriptions": {
+    "message": "My Subscriptions"
+  }, 
+   "last_videos": {
+    "message": "Last Videos"
+  }, 
+    "categories": {
     "message": "Categories"
+  }, 
+    "latest_videos": {
+    "message": "Latest Videos"
+  },
+    "click_to_add_new": {
+    "message": "Click to add new!"
+  },
+    "add": {
+    "message": "Add"
+  }, 
+     "plus_category": {
+    "message": "+ Category"
+  }, 
+    "opt_bookmarks_folder_name": {
+    "message": "SubMan Bookmarks folder name:"
+  },  
+    "opt_bookmarks_category_sync": {
+    "message": "Sync my custom categories to Chrome bookmarks."
+  },
+    "general_options": {
+    "message": "General Options"
+  },
+    "create_new_category": {
+    "message": "Create a new category "
+  },
+    "update_channels_category": {
+    "message": "Update Channel's categories"
+  },
+    "add_a_new_channel": {
+    "message": "Add a new channel"
+  },
+    "category_name_too_long": {
+    "message": "Category name can not be longer than 100 characters."
+  },
+    "provide_a_character": {
+    "message": "Please provide at least one character."
+  },
+    "already_exists": {
+    "message": "Sorry, this name already exists!"
+  },
+        "options_category_long_error": {
+    "message": "Category name can not be longer than 50 characters."
+  },
+      "options_category_short_error": {
+    "message": "Please provide at least one character."
   }
 }

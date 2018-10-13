@@ -9,11 +9,12 @@
 
 <script>
     import state from '../mixins/state'
+    import locales from "../mixins/locales"
     import VideoBox from './VideoBox'
 
     export default {
         name: "video-tab",
-        mixins: [state],
+        mixins: [locales, state],
         components: {
             VideoBox
         },

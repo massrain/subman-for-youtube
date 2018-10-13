@@ -6,25 +6,25 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                <a class="navbar-brand" href="#">Subman for YouTube™</a>
+                <a class="navbar-brand" href="#">{{ _('extension_name') }}</a>
                 <ul class="navbar-nav nav nav-tabs ml-auto mr-auto mt-2 mt-lg-0">
                     <li class="nav-item">
                         <a class="nav-link"
                            :class="classes('my-categories')"
                            @click.prevent="activate('my-categories')"
                            href="#">
-                            Categories
+                            {{ _('categories') }}
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#last-videos"
                            :class="classes('last-videos')"
                            @click.prevent="activate('last-videos')">
-                            Latest Videos
+                            {{ _('latest_videos') }}
                         </a>
                     </li>
                 </ul>
-                <a class="nav-link text-white" href="https://massrain.github.io/subman-for-youtube/">About/Contact</a>
+                <a class="nav-link text-white" href="https://massrain.github.io/subman-for-youtube/">{{ _('about_contact') }}</a>
 
             </div>
         </nav>
@@ -32,8 +32,11 @@
 </template>
 
 <script>
+    import locales from '../mixins/locales'
+
     export default {
         name: "Navbar",
+        mixins: [locales],
         props: [],
         data: function () {
             return {

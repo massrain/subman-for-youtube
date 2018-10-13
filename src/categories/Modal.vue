@@ -34,7 +34,7 @@
                             <div class="col-2">
                                 <button type="button"
                                         @click.prevent="add"
-                                        class="btn btn-danger">Add
+                                        class="btn btn-danger">{{ _('add') }}
                                 </button>
                             </div>
                         </div>
@@ -81,11 +81,12 @@
     import Multiselect from 'vue-multiselect'
 
     import state from '../mixins/state'
+    import locales from '../mixins/locales'
     import slugify from 'slugify'
 
     export default {
         name: "Modal",
-        mixins: [state],
+        mixins: [locales, state],
         components: {Multiselect},
         props: ['type'],
         data: function () {
@@ -130,9 +131,9 @@
             },
             title() {
                 switch (this.modalType) {
-                    case 'category': return 'Create a new category';
-                    case 'subscription': return 'Update Channel\'s categories';
-                    case 'channel': return 'Add a new channel';
+                    case 'category': return this._('create_new_category');
+                    case 'subscription': return this._('update_channels_category');
+                    case 'channel': return this._('add_a_new_channel');
                 }
             },
         },
@@ -141,16 +142,16 @@
                 let self = this;
 
                 if (this.models.category.length > 100) {
-                    this.validationMessage = 'Category name can not be longer than 100 characters.';
+                    this.validationMessage = this._('category_name_too_long');
                     return false;
                 }
                 if (this.models.category === '') {
-                    this.validationMessage = 'Please provide at least one character.';
+                    this.validationMessage = this._('provide_a_character');
                     return false;
                 }
                 if (this.categories.some(value => value.slug === slugify(self.models.category)) ||
                     slugify(this.models.category) === 'my-subscriptions') {
-                    this.validationMessage = 'Sorry, this name already exists!';
+                    this.validationMessage = this._('already_exists');
                     return false;
                 }
 
@@ -164,7 +165,7 @@
                         this.setActiveTabId(slugify(this.models.category));
                         this.models.category = '';
                         break;
-                    case 'subscription': return 'Update Channel\'s categories';
+                    case 'subscription': return this._('update_channels_category');
                 }
 
                 this.toggleModalVisible();

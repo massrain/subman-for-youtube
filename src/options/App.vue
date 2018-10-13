@@ -17,7 +17,7 @@
                             <form>
                                 <div class="row">
                                     <div class="col-8">
-                                        <h6>Sync my custom categories to Chrome bookmarks.</h6>
+                                        <h6> {{ _('opt_bookmarks_category_sync') }} </h6>
                                     </div>
                                     <div class="col-4">
                                         <input class="form-control"
@@ -30,7 +30,7 @@
                                 <hr>
                                 <div class="row">
                                     <div class="col-8">
-                                        <h6>SubMan Bookmarks folder name:</h6>
+                                        <h6>{{ _('opt_bookmarks_folder_name') }}</h6>
                                     </div>
                                     <div class="col-4">
                                         <div class="form-group">
@@ -54,7 +54,7 @@
 
         <section>
             <div class="footer sticky-bottom text-danger">
-                <strong>Subman for YouTube™ - 2018</strong>
+                <strong>{{ _('extension_name') }}</strong>
             </div>
         </section>
     </div>
@@ -85,11 +85,11 @@
         methods: {
             validateBookmarksFolderName(value) {
                 if (value.length > 50) {
-                    this.validationMessage = 'Category name can not be longer than 50 characters.';
+                    this.validationMessage = this._('options_category_long_error');
                     return false;
                 }
                 if (value === '') {
-                    this.validationMessage = 'Please provide at least one character.';
+                    this.validationMessage = this._('options_category_short_error');
                     return false;
                 }
 

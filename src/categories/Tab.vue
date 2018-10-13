@@ -11,7 +11,7 @@
                      style=""
                      src="http://fs5.directupload.net/images/181010/mghyhn36.png" alt="Add New">
             </a>
-            <p class="text-danger" style="padding-top:10px"><strong>Click to add new!</strong></p>
+            <p class="text-danger" style="padding-top:10px"><strong>{{ _('click_to_add_new') }}</strong></p>
 
         </div>
         <modal @channels-updated="$emit('category-updated')"
@@ -22,12 +22,13 @@
 
 <script>
     import state from '../mixins/state'
+    import locales from "../mixins/locales"
     import Channel from './Channel'
     import Modal from './Modal'
 
     export default {
         name: "Tab",
-        mixins: [state],
+        mixins: [locales, state],
         components: {
             Channel,
             Modal

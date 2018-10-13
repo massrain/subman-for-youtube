@@ -6,7 +6,7 @@
                 <img :src="logoURL" class="logo-icon">
             </div>
             <div class="col-10">
-                <h1 class="title-text">{{ _('extension_name') }}</h1>
+                <h1 style="font-size:23px" class="title-text">{{ _('extension_name') }}</h1>
             </div>
         </div>
         <div v-if="authorized" class="row justify-content-center" style="margin-top:10px; padding-bottom:10px;">
@@ -19,37 +19,34 @@
                 <h6 class="alert-heading">
                     {{ _('popup_greeting') }} <strong v-if="user">{{ user.title }}!</strong>
                 </h6>
-                <p class="mb-0">
-                    You have successfully authorized. You can now move to
-                    your categories page.</p>
+                <p class="mb-0"> {{ _('succesful_authorization') }}
+                    </p>
             </div>
-            <a class="btn btn-info mb-0" @click.prevent="openCategoriesTab" role="button">My Categories</a>
+            <a class="btn btn-info mb-0" @click.prevent="openCategoriesTab" role="button">{{ _('btn_my_categories') }}</a>
         </div>
         <div v-if="authorized" class="row bg-danger text-white justify-content-center text-center">
             <div class="p-0 flex-fill">
                 <a id="btnOptions" class="btn btn-danger btn-sm"
                    @click.prevent="openOptionsTab" href="#" role="button">
-                    <i class="fas fa-cog"></i> Options
+                    <i class="fas fa-cog"></i> {{ _('options') }}
                 </a>
             </div>
             <div class="p-0 flex-fill">
-                <a class="btn btn-danger btn-sm" target="_blank" href="https://github.com/massrain/subman-for-youtube/blob/master/LICENSE"><img src="http://fs1.directupload.net/images/181010/249duysm.png"/> License</a>
+                <a class="btn btn-danger btn-sm" target="_blank" href="https://github.com/massrain/subman-for-youtube/blob/master/LICENSE"><img src="http://fs1.directupload.net/images/181010/249duysm.png"/> {{ _('license') }}</a>
             </div>
             <div class="p-0 flex-fill">
-                <a class="btn btn-danger btn-sm" target="_blank" href="https://massrain.github.io/subman-for-youtube/"><img src="http://fs1.directupload.net/images/181010/td75z2on.png"> About</a>
+                <a class="btn btn-danger btn-sm" target="_blank" href="https://massrain.github.io/subman-for-youtube/"><img src="http://fs1.directupload.net/images/181010/td75z2on.png"> {{ _('about') }}</a>
             </div>
         </div>
         <div v-else class="row justify-content-center" style="margin-top:10px; padding-bottom:10px;">
 
             <div class="alert alert-info text-center" style="margin-bottom: 7px!important" role="alert">
-                <h5 class="alert-heading">Hello!</h5>
-                <p>You have not authorized our extension.<br> To continue, you must authorize by clicking the
-                    "Authorize" button below.</p>
+                <h5 class="alert-heading">{{ _('popup_greeting') }}</h5>
+                <p>{{ _('not_authorized_1') }}<br> {{ _('not_authorized_2') }}</p>
                 <hr>
-                <p class="mb-0">This extension <strong>only reads</strong> your Youtube account's subscriptions as
-                    you will see on the permissions page.</p>
+                <p class="mb-0">{{ _('extension_permission_warning') }}</p>
             </div>
-            <a class="btn btn-danger mb-0" href="#" @click.prevent="requestAuth(true)" role="button">Authorize Now</a>
+            <a class="btn btn-danger mb-0" href="#" @click.prevent="requestAuth(true)" role="button">{{ _('btn_authorize_now') }}</a>
         </div>
     </div>
 </template>

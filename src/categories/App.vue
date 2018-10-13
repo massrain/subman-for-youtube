@@ -11,13 +11,13 @@
                             <a class="nav-link btn btn-outline-danger"
                                :class="{active: activateTab('my-subscriptions')}"
                                @click="setActiveTabId('my-subscriptions')"
-                               href="#my-subscriptions">My Subscriptions</a>
+                               href="#my-subscriptions">{{ _('my_subscriptions') }}</a>
                         </li>
                         <li class="nav-item ml-1" v-show="activeMainTab === 'last-videos'">
                             <a class="nav-link btn btn-outline-danger"
                                :class="{active: activateTab('my-last-videos')}"
                                @click="setActiveTabId('my-last-videos')"
-                               href="#my-last-videos">Last Videos</a>
+                               href="#my-last-videos">{{ _('last_videos') }}</a>
                         </li>
                         <li class="nav-item ml-1"
                             v-for="(category, index) in categories"
@@ -41,7 +41,7 @@
                         </li>
                         <li class="nav-item ml-1" v-show="activeMainTab === 'my-categories'">
                             <a class="nav-link btn btn-dark text-white"
-                               @click.prevent="toggleModalVisible({formType: 'category', relatedId: null})">+ Category</a>
+                               @click.prevent="toggleModalVisible({formType: 'category', relatedId: null})">{{ _('plus_category') }}</a>
                         </li>
                     </ul>
                 </div>
@@ -88,7 +88,7 @@
 
         <section>
             <div class="footer sticky-bottom text-danger">
-                <strong>Subman for YouTube™ - 2018</strong>
+                <strong>{{ _('extension_name') }}</strong>
             </div>
         </section>
     </div>
