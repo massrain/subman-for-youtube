@@ -54,7 +54,7 @@
 
         <section>
             <div class="footer sticky-bottom text-danger">
-                <strong>SubMan for YouTube - 2018</strong>
+                <strong>Subman for YouTube™ - 2018</strong>
             </div>
         </section>
     </div>
