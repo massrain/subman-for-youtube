@@ -12,7 +12,7 @@ The extension is in its beta stage. In future versions planned; you will be able
 
 Click below to visit the extension' page and add it to your browser.
 
-[Chrome Web Store](https://www.google.com/policies/privacy/)
+[Chrome Web Store](https://goo.gl/G7hKMj)
 
 **Important:** This extension needs authorization to see your list of subscriptions. As you will see on the authorization page, it only **reads** your list of subscriptions. Does not have permissions to edit, change or delete. SubMan for YouTube also **does not storage any kinds of data**
 
