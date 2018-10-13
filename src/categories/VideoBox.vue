@@ -54,8 +54,8 @@
         margin: 5px;
         border: 2px solid black;
         float: left;
-        width: 360px;
-        height: 182px;
+        width: 230px;
+        height: 230px;
         transition-duration: 0.4s;
         border-radius: 5px;
         animation: winanim 0.5s;
@@ -70,17 +70,17 @@
 
     .portfolio-lv img {
         width: 100%;
-        height: 136px;
+        height: 180px;
     }
 
     .portfolio-lv .desc {
-        font-size: 0.9rem; /* .body taginden de yapilabilir */
+        font-size: 0.8rem; /* .body taginden de yapilabilir */
         padding: 5px;
         display: flex;
         align-items: center;
         font-weight: normal;
         width: 100%;
-        height: 48px;
+        height: 69px;
         position: absolute;
         border-top: 1px solid black;
         bottom: 0;
