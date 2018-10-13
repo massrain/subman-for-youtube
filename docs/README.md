@@ -2,7 +2,7 @@
 
 ### A Google Chrome extension to handle your YouTube subscriptions better!
 
-![alt text](http://fs1.directupload.net/images/181011/trcspixc.jpg)
+![alt text](http://fs1.directupload.net/images/181013/ironqgaq.jpg)
 
 YouTube currently shows you your entire subscriptions in one single list. For more active users on the platform who has a lot of subscriptions; it is hard to roam in your subscriptions folder.
 
@@ -60,4 +60,10 @@ You can now edit the app. This command watches modifications and also enables Ho
 
 [Link to Privacy Policy](/subman-for-youtube/privacy_policy)
 
-![alt text](http://fs5.directupload.net/images/181011/ttxs9hq7.jpg)
+![alt text](http://fs5.directupload.net/images/181013/vbvkinxe.jpg)
+
+## Notes
+
+YouTube is a trademark of Google Inc. Use of this trademark is subject to Google Permissions.
+
+Icons used in this extension are from iconsDB.com 
