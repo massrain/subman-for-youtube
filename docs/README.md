@@ -1,4 +1,4 @@
-# SubMan for YouTube
+# SubMan for YouTube™
 
 ### A Google Chrome extension to handle your YouTube subscriptions better!
 
@@ -6,7 +6,7 @@
 
 YouTube currently shows you your entire subscriptions in one single list. For more active users on the platform who has a lot of subscriptions; it is hard to roam in your subscriptions folder.
 
-With "SubMan for YouTube", you can manage your YouTube subscriptions in a folderview. You can make new categories, add channels into them and visit anytime you want.
+With "SubMan for YouTube™", you can manage your YouTube subscriptions in a folderview. You can make new categories, add channels into them and visit anytime you want.
 
 The extension is in its beta stage. In future versions planned; you will be able to view last videos from those channels in new tabs.
 
